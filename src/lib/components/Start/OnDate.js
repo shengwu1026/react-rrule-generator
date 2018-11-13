@@ -53,7 +53,7 @@ const StartOnDate = ({
                 readOnly: true,
               }
             }
-            timeFormat={false}
+            timeFormat={true}
             viewMode="days"
             closeOnSelect
             closeOnTab

@@ -62,7 +62,6 @@ class ReactRRuleGenerator extends PureComponent {
 
     return (
       <div>
-
         {
           !options.hideError && error && (
             <div className="alert alert-danger">
@@ -72,9 +71,8 @@ class ReactRRuleGenerator extends PureComponent {
         }
 
         <div className="px-0 pt-3 border rounded">
-
           {
-            !options.hideStart && (
+            options.hideStart && (
               <div>
                 <Start
                   id={`${id}-start`}
@@ -129,6 +127,7 @@ ReactRRuleGenerator.propTypes = {
   onChange: PropTypes.func,
   calendarComponent: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 };
+
 ReactRRuleGenerator.defaultProps = {
   id: null,
   value: '',

@@ -1,4 +1,4 @@
-export const DATE_TIME_FORMAT = 'YYYY-MM-DD';
+export const DATE_TIME_FORMAT = 'YYYY-MM-DD HH:MM';
 
 export const MONTHS = [
   'Jan',
@@ -12,8 +12,9 @@ export const MONTHS = [
   'Sep',
   'Oct',
   'Nov',
-  'Dec'
+  'Dec',
 ];
+
 export const DAYS = [
   'Monday',
   'Tuesday',
@@ -24,5 +25,5 @@ export const DAYS = [
   'Sunday',
   'Day',
   'Weekday',
-  'Weekend day'
+  'Weekend day',
 ];
