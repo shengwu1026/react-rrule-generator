@@ -21,7 +21,11 @@ const Start = ({
           </strong>
         </label>
       </div>
-      <StartOnDate id={id} onDate={onDate} handleChange={handleChange} />
+      <StartOnDate
+        id={`${id}-onDate`}
+        onDate={onDate}
+        handleChange={handleChange}
+      />
     </div>
   </div>
 );

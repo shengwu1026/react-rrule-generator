@@ -29,6 +29,7 @@ const RepeatDaily = ({
 
   </div>
 );
+
 RepeatDaily.propTypes = {
   id: PropTypes.string.isRequired,
   daily: PropTypes.shape({

@@ -19,7 +19,7 @@ const StartOnDate = ({
   const CustomCalendar = options.calendarComponent;
   const locale = options.weekStartsOnSunday ? 'en-ca' : 'en-gb';
   const calendarAttributes = {
-    'aria-label': 'Datetime picker for end on date',
+    'aria-label': 'Datetime picker for start on date',
     value: date,
     dateFormat: DATE_TIME_FORMAT,
     locale,
@@ -40,24 +40,21 @@ const StartOnDate = ({
                   name: 'start.onDate.date',
                 },
               };
-
               handleChange(editedEvent);
             }}
           />
+
           : <DateTime
-            {...calendarAttributes}
             inputProps={
               {
                 id: `${id}-datetime`,
                 name: 'start.onDate.date',
+                placeholder: 'Select Start Time',
                 readOnly: true,
               }
             }
-            timeFormat={true}
+            timeFormat
             viewMode="days"
-            closeOnSelect
-            closeOnTab
-            required
             onChange={(inputDate) => {
               const editedEvent = {
                 target: {
@@ -65,7 +62,6 @@ const StartOnDate = ({
                   name: 'start.onDate.date',
                 },
               };
-
               handleChange(editedEvent);
             }}
           />

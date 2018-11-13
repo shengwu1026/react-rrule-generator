@@ -9,7 +9,7 @@ const configureState = (config = {}, calendarComponent, id) => {
   const configureYearly = () => (config.yearly || 'on');
   const configureMonthly = () => (config.monthly || 'on');
   const configureEnd = () => (config.end ? config.end[0] : 'Never');
-  const configureHideStart = () => (typeof config.hideStart === 'undefined' ? true : config.hideStart);
+  // const configureHideStart = () => (typeof config.hideStart === 'undefined' ? true : config.hideStart);
   const uniqueRruleId = isEmpty(id) ? uniqueId('rrule-') : id;
 
   const data = {
@@ -93,7 +93,7 @@ const configureState = (config = {}, calendarComponent, id) => {
       },
     },
     options: {
-      hideStart: configureHideStart(),
+      hideStart: config.hideStart,
       hideEnd: config.hideEnd,
       hideError: config.hideError,
       weekStartsOnSunday: config.weekStartsOnSunday,

@@ -45,9 +45,9 @@ const Repeat = ({
           >
             {isOptionAvailable('Yearly') && <option value="Yearly">Yearly</option>}
             {isOptionAvailable('Monthly') && <option value="Monthly">Monthly</option>}
-            {isOptionAvailable('Weekly') && <option value="Weekly">Weekly</option>}
+            {/*{isOptionAvailable('Weekly') && <option value="Weekly">Weekly</option>}*/}
             {isOptionAvailable('Daily') && <option value="Daily">Daily</option>}
-            {isOptionAvailable('Hourly') && <option value="Hourly">Hourly</option>}
+            {/*{isOptionAvailable('Hourly') && <option value="Hourly">Hourly</option>}*/}
           </select>
         </div>
       </div>
@@ -68,14 +68,14 @@ const Repeat = ({
           handleChange={handleChange}
         />
       }
-      {
-        isOptionSelected('Weekly') &&
-        <RepeatWeekly
-          id={`${id}-weekly`}
-          weekly={weekly}
-          handleChange={handleChange}
-        />
-      }
+      {/*{*/}
+        {/*isOptionSelected('Weekly') &&*/}
+        {/*<RepeatWeekly*/}
+          {/*id={`${id}-weekly`}*/}
+          {/*weekly={weekly}*/}
+          {/*handleChange={handleChange}*/}
+        {/*/>*/}
+      {/*}*/}
       {
         isOptionSelected('Daily') &&
         <RepeatDaily
@@ -84,14 +84,14 @@ const Repeat = ({
           handleChange={handleChange}
         />
       }
-      {
-        isOptionSelected('Hourly') &&
-        <RepeatHourly
-          id={`${id}-hourly`}
-          hourly={hourly}
-          handleChange={handleChange}
-        />
-      }
+      {/*{*/}
+        {/*isOptionSelected('Hourly') &&*/}
+        {/*<RepeatHourly*/}
+          {/*id={`${id}-hourly`}*/}
+          {/*hourly={hourly}*/}
+          {/*handleChange={handleChange}*/}
+        {/*/>*/}
+      {/*}*/}
 
     </div>
   );

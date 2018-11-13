@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import DateTime from 'react-datetime';
+import DatePicker from 'react-datepicker';
 
 import 'moment/locale/en-gb';
 import 'moment/locale/en-ca';
@@ -17,7 +18,6 @@ const EndOnDate = ({
   handleChange,
 }) => {
   const CustomCalendar = options.calendarComponent;
-
   const locale = options.weekStartsOnSunday ? 'en-ca' : 'en-gb';
   const calendarAttributes = {
     'aria-label': 'Datetime picker for end on date',
@@ -41,24 +41,21 @@ const EndOnDate = ({
                   name: 'end.onDate.date',
                 },
               };
-
               handleChange(editedEvent);
             }}
           />
+
           : <DateTime
-            {...calendarAttributes}
             inputProps={
               {
                 id: `${id}-datetime`,
                 name: 'end.onDate.date',
+                placeholder: 'Select End Time',
                 readOnly: true,
               }
             }
-            timeFormat={true}
+            timeFormat
             viewMode="days"
-            closeOnSelect
-            closeOnTab
-            required
             onChange={(inputDate) => {
               const editedEvent = {
                 target: {
@@ -66,7 +63,6 @@ const EndOnDate = ({
                   name: 'end.onDate.date',
                 },
               };
-
               handleChange(editedEvent);
             }}
           />

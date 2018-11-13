@@ -24,7 +24,7 @@ const RepeatHourly = ({
       />
     </div>
     <div className="col-sm-1">
-      day(s)
+      hour(s)
     </div>
   </div>
 );

@@ -128,5 +128,8 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "dependencies": {
+    "react-datepicker": "^1.8.0"
   }
 }

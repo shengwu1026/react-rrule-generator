@@ -72,7 +72,7 @@ class ReactRRuleGenerator extends PureComponent {
 
         <div className="px-0 pt-3 border rounded">
           {
-            options.hideStart && (
+            !options.hideStart && (
               <div>
                 <Start
                   id={`${id}-start`}
@@ -104,7 +104,6 @@ class ReactRRuleGenerator extends PureComponent {
               </div>
             )
           }
-
         </div>
       </div>
     );
