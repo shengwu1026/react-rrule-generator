@@ -12,6 +12,7 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state.rrule);
     return (
       <div className="app container">
         <ReactRRuleGenerator

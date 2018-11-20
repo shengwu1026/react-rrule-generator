@@ -6,7 +6,7 @@ import DateTime from 'react-datetime';
 import 'moment/locale/en-gb';
 import 'moment/locale/en-ca';
 
-import { DATE_TIME_FORMAT } from '../../constants/index';
+import { DATE_TIME_FORMAT, DATE_FORMAT, TIME_FORMAT } from '../../constants/index';
 
 const StartOnDate = ({
   id,
@@ -15,60 +15,59 @@ const StartOnDate = ({
     options,
   },
   handleChange,
-}) => {
-  const CustomCalendar = options.calendarComponent;
-  const locale = options.weekStartsOnSunday ? 'en-ca' : 'en-gb';
-  const calendarAttributes = {
-    'aria-label': 'Datetime picker for start on date',
-    value: date,
-    dateFormat: DATE_TIME_FORMAT,
-    locale,
-    readOnly: true,
-  };
+}) => (
+  <div className="row" style={{ marginLeft: '1px' }}>
+    <div className="col-6">
+      <DateTime
+        inputProps={{
+          id: `${id}-datetime`,
+          name: 'start.onDate.date',
+          placeholder: 'Select Start Date',
+          readOnly: true,
+        }}
+        timeFormat={false}
+        viewMode="days"
+        onChange={(inputDate) => {
+          const dateData = moment(inputDate).format(DATE_FORMAT);
+          const timeData = moment(date).format(TIME_FORMAT);
 
-  return (
-    <div className="col-6 col-sm-3">
-      {
-        CustomCalendar
-          ? <CustomCalendar
-            key={`${id}-calendar`}
-            {...calendarAttributes}
-            onChange={(event) => {
-              const editedEvent = {
-                target: {
-                  value: event.target.value,
-                  name: 'start.onDate.date',
-                },
-              };
-              handleChange(editedEvent);
-            }}
-          />
-
-          : <DateTime
-            inputProps={
-              {
-                id: `${id}-datetime`,
-                name: 'start.onDate.date',
-                placeholder: 'Select Start Time',
-                readOnly: true,
-              }
-            }
-            timeFormat
-            viewMode="days"
-            onChange={(inputDate) => {
-              const editedEvent = {
-                target: {
-                  value: moment(inputDate).format(DATE_TIME_FORMAT),
-                  name: 'start.onDate.date',
-                },
-              };
-              handleChange(editedEvent);
-            }}
-          />
-      }
+          const editedEvent = {
+            target: {
+              value: moment(`${dateData} ${timeData}`).format(DATE_TIME_FORMAT),
+              name: 'start.onDate.date',
+            },
+          };
+          handleChange(editedEvent);
+        }}
+      />
     </div>
-  );
-};
+
+    <div className="col-6">
+      <DateTime
+        inputProps={{
+          id: `${id}-datetime`,
+          name: 'start.onDate.date',
+          placeholder: 'Select Start Time',
+          readOnly: true,
+        }}
+        dateFormat={false}
+        viewMode="time"
+        onChange={(inputDate) => {
+          const dateData = moment(date).format(DATE_FORMAT);
+          const timeData = moment(inputDate).format(TIME_FORMAT);
+
+          const editedEvent = {
+            target: {
+              value: moment(`${dateData} ${timeData}`).format(DATE_TIME_FORMAT),
+              name: 'start.onDate.date',
+            },
+          };
+          handleChange(editedEvent);
+        }}
+      />
+    </div>
+  </div>
+);
 
 StartOnDate.propTypes = {
   id: PropTypes.string.isRequired,
